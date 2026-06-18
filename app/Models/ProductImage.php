@@ -28,4 +28,12 @@ class ProductImage extends Model
     {
         return $this->belongsTo(Product::class);
     }
+
+    public function getUrlAttribute($value): string
+    {
+        if (str_starts_with($value, 'http')) {
+            return $value;
+        }
+        return config('app.url') . ($value ?: '');
+    }
 }
