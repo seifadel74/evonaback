@@ -1,0 +1,98 @@
+name: 'التصنيفات (Categories)'
+description: ''
+endpoints:
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/v1/categories
+    metadata:
+      custom: []
+      groupName: 'التصنيفات (Categories)'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '{"success":true,"data":[{"id":1,"name":"\u0627\u0644\u0634\u0645\u0648\u0639","slug":"alshmoaa","description":"\u0634\u0645\u0648\u0639 \u0645\u0639\u0637\u0631\u0629 \u0637\u0628\u064a\u0639\u064a\u0629 \u0641\u0627\u062e\u0631\u0629 \u0644\u062a\u0636\u0641\u064a \u0623\u062c\u0648\u0627\u0621 \u0633\u0627\u062d\u0631\u0629 \u0639\u0644\u0649 \u0645\u0646\u0632\u0644\u0643","image":null,"parent_id":null,"is_active":true,"sort_order":10,"created_at":"2026-05-23T13:07:45.000000Z","updated_at":"2026-05-23T13:07:45.000000Z","children":[{"id":2,"name":"\u0634\u0645\u0648\u0639 \u0645\u0639\u0637\u0631\u0629","slug":"shmoaa-maatr","description":"\u0634\u0645\u0648\u0639 \u0628\u0631\u0648\u0627\u0626\u062d \u0645\u0645\u064a\u0632\u0629 \u062a\u062f\u0648\u0645 \u0637\u0648\u064a\u0644\u0627\u064b","image":null,"parent_id":1,"is_active":true,"sort_order":10,"created_at":"2026-05-23T13:07:45.000000Z","updated_at":"2026-05-23T13:07:45.000000Z"},{"id":3,"name":"\u0634\u0645\u0648\u0639 \u0637\u0628\u064a\u0639\u064a\u0629","slug":"shmoaa-tbyaay","description":"\u0634\u0645\u0648\u0639 \u0645\u0646 \u0634\u0645\u0639 \u0627\u0644\u0635\u0648\u064a\u0627 \u0627\u0644\u0637\u0628\u064a\u0639\u064a \u0661\u0660\u0660\u066a","image":null,"parent_id":1,"is_active":true,"sort_order":20,"created_at":"2026-05-23T13:07:45.000000Z","updated_at":"2026-05-23T13:07:45.000000Z"},{"id":4,"name":"\u0634\u0645\u0648\u0639 \u0641\u0627\u062e\u0631\u0629","slug":"shmoaa-fakhr","description":"\u0634\u0645\u0648\u0639 \u0641\u0627\u062e\u0631\u0629 \u0628\u062a\u0635\u0627\u0645\u064a\u0645 \u0631\u0627\u0642\u064a\u0629 \u0647\u062f\u064a\u0629 \u0645\u062b\u0627\u0644\u064a\u0629","image":null,"parent_id":1,"is_active":true,"sort_order":30,"created_at":"2026-05-23T13:07:45.000000Z","updated_at":"2026-05-23T13:07:45.000000Z"}]},{"id":5,"name":"\u0627\u0644\u0639\u0646\u0627\u064a\u0629 \u0628\u0627\u0644\u0628\u0634\u0631\u0629","slug":"alaanay-balbshr","description":"\u0645\u0646\u062a\u062c\u0627\u062a \u0639\u0646\u0627\u064a\u0629 \u0628\u0627\u0644\u0628\u0634\u0631\u0629 \u0637\u0628\u064a\u0639\u064a\u0629 \u0648\u0639\u0636\u0648\u064a\u0629 \u0644\u0628\u0634\u0631\u0629 \u0646\u0636\u0631\u0629 \u0648\u0635\u062d\u064a\u0629","image":null,"parent_id":null,"is_active":true,"sort_order":20,"created_at":"2026-05-23T13:07:45.000000Z","updated_at":"2026-05-23T13:07:45.000000Z","children":[{"id":6,"name":"\u0632\u064a\u0648\u062a \u0637\u0628\u064a\u0639\u064a\u0629","slug":"zyot-tbyaay","description":"\u0632\u064a\u0648\u062a \u0637\u0628\u064a\u0639\u064a\u0629 \u0646\u0642\u064a\u0629 \u0644\u0644\u0648\u062c\u0647 \u0648\u0627\u0644\u062c\u0633\u0645","image":null,"parent_id":5,"is_active":true,"sort_order":10,"created_at":"2026-05-23T13:07:45.000000Z","updated_at":"2026-05-23T13:07:45.000000Z"},{"id":7,"name":"\u0643\u0631\u064a\u0645\u0627\u062a \u0648\u0645\u0631\u0637\u0628\u0627\u062a","slug":"krymat-omrtbat","description":"\u0643\u0631\u064a\u0645\u0627\u062a \u0645\u063a\u0630\u064a\u0629 \u0648\u0645\u0631\u0637\u0628\u0627\u062a \u0639\u0645\u064a\u0642\u0629 \u0644\u0644\u0628\u0634\u0631\u0629","image":null,"parent_id":5,"is_active":true,"sort_order":20,"created_at":"2026-05-23T13:07:45.000000Z","updated_at":"2026-05-23T13:07:45.000000Z"},{"id":8,"name":"\u0635\u0627\u0628\u0648\u0646 \u0637\u0628\u064a\u0639\u064a","slug":"sabon-tbyaay","description":"\u0635\u0627\u0628\u0648\u0646 \u0637\u0628\u064a\u0639\u064a \u0645\u0635\u0646\u0648\u0639 \u064a\u062f\u0648\u064a\u0627\u064b","image":null,"parent_id":5,"is_active":true,"sort_order":30,"created_at":"2026-05-23T13:07:45.000000Z","updated_at":"2026-05-23T13:07:45.000000Z"}]},{"id":9,"name":"\u0627\u0644\u0639\u0646\u0627\u064a\u0629 \u0628\u0627\u0644\u062c\u0633\u0645","slug":"alaanay-balgsm","description":"\u0645\u0646\u062a\u062c\u0627\u062a \u0627\u0644\u0639\u0646\u0627\u064a\u0629 \u0627\u0644\u064a\u0648\u0645\u064a\u0629 \u0628\u0627\u0644\u062c\u0633\u0645 \u0644\u0646\u0639\u0648\u0645\u0629 \u0648\u0627\u0646\u062a\u0639\u0627\u0634 \u064a\u062f\u0648\u0645","image":null,"parent_id":null,"is_active":true,"sort_order":30,"created_at":"2026-05-23T13:07:45.000000Z","updated_at":"2026-05-23T13:07:45.000000Z","children":[{"id":10,"name":"\u0644\u0648\u0634\u0646 \u0644\u0644\u062c\u0633\u0645","slug":"loshn-llgsm","description":"\u0644\u0648\u0634\u0646 \u0645\u0631\u0637\u0628 \u0644\u0644\u062c\u0633\u0645 \u0628\u0631\u0648\u0627\u0626\u062d \u0645\u0646\u0639\u0634\u0629","image":null,"parent_id":9,"is_active":true,"sort_order":10,"created_at":"2026-05-23T13:07:45.000000Z","updated_at":"2026-05-23T13:07:45.000000Z"},{"id":11,"name":"\u0633\u0643\u0631\u0627\u0628 \u0648\u0645\u0642\u0634\u0631","slug":"skrab-omkshr","description":"\u0645\u0642\u0634\u0631\u0627\u062a \u0637\u0628\u064a\u0639\u064a\u0629 \u0644\u0644\u062c\u0633\u0645 \u062a\u0645\u0646\u062d\u0643 \u0628\u0634\u0631\u0629 \u0646\u0627\u0639\u0645\u0629","image":null,"parent_id":9,"is_active":true,"sort_order":20,"created_at":"2026-05-23T13:07:45.000000Z","updated_at":"2026-05-23T13:07:45.000000Z"}]},{"id":12,"name":"\u0647\u062f\u0627\u064a\u0627","slug":"hdaya","description":"\u0623\u0637\u0642\u0645\u0629 \u0647\u062f\u0627\u064a\u0627 \u0641\u0627\u062e\u0631\u0629 \u0648\u0645\u062e\u0635\u0635\u0629 \u0644\u0643\u0644 \u0627\u0644\u0645\u0646\u0627\u0633\u0628\u0627\u062a","image":null,"parent_id":null,"is_active":true,"sort_order":40,"created_at":"2026-05-23T13:07:45.000000Z","updated_at":"2026-05-23T13:07:45.000000Z","children":[{"id":13,"name":"\u0637\u0642\u0645 \u0647\u062f\u0627\u064a\u0627","slug":"tkm-hdaya","description":"\u0623\u0637\u0642\u0645\u0629 \u0647\u062f\u0627\u064a\u0627 \u0645\u062a\u0643\u0627\u0645\u0644\u0629 \u0628\u0645\u0646\u0627\u0633\u0628\u0629 \u0645\u0645\u064a\u0632\u0629","image":null,"parent_id":12,"is_active":true,"sort_order":10,"created_at":"2026-05-23T13:07:45.000000Z","updated_at":"2026-05-23T13:07:45.000000Z"},{"id":14,"name":"\u0647\u062f\u0627\u064a\u0627 \u0645\u062e\u0635\u0635\u0629","slug":"hdaya-mkhss","description":"\u0647\u062f\u0627\u064a\u0627 \u0628\u062a\u0635\u0645\u064a\u0645 \u062d\u0633\u0628 \u0637\u0644\u0628\u0643","image":null,"parent_id":12,"is_active":true,"sort_order":20,"created_at":"2026-05-23T13:07:45.000000Z","updated_at":"2026-05-23T13:07:45.000000Z"}]}]}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/v1/categories/{slug}'
+    metadata:
+      custom: []
+      groupName: 'التصنيفات (Categories)'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      slug:
+        custom: []
+        name: slug
+        description: 'The slug of the category.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      slug: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 404
+        content: |-
+          {
+              "message": "No query results for model [App\\Models\\Category]."
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
