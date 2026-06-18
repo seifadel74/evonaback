@@ -20,8 +20,9 @@ return Application::configure(basePath: dirname(__DIR__))
             'admin' => AdminMiddleware::class,
         ]);
 
+        $middleware->append(HandleCors::class);
+
         $middleware->api(prepend: [
-            HandleCors::class,
             ForceJsonResponse::class,
             SecurityHeaders::class,
         ]);
