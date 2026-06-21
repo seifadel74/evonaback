@@ -75,6 +75,7 @@ class ProductController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|string|max:255',
+            'en_name' => 'nullable|string|max:255',
             'description' => 'required|string',
             'short_description' => 'nullable|string|max:500',
             'price' => 'required|numeric|min:0',
@@ -118,6 +119,7 @@ class ProductController extends Controller
 
         $validated = $request->validate([
             'name' => 'sometimes|string|max:255',
+            'en_name' => 'nullable|string|max:255',
             'description' => 'sometimes|string',
             'short_description' => 'nullable|string|max:500',
             'price' => 'sometimes|numeric|min:0',

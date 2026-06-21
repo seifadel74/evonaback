@@ -18,6 +18,7 @@ class Product extends Model
 
     protected $fillable = [
         'name',
+        'en_name',
         'slug',
         'description',
         'short_description',
@@ -139,6 +140,7 @@ class Product extends Model
         return $query->where(function (Builder $q) use ($term) {
             $like = '%' . $term . '%';
             $q->where('name', 'like', $like)
+              ->orWhere('en_name', 'like', $like)
               ->orWhere('short_description', 'like', $like)
               ->orWhere('sku', 'like', $like);
         });
