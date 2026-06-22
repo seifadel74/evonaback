@@ -101,7 +101,7 @@ class OrderController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Payment status updated.',
+            'message' => __('messages.payment_status_updated'),
             'data' => $order->fresh()->load('user', 'items', 'trackingEvents'),
         ]);
     }
@@ -154,7 +154,7 @@ class OrderController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Order status updated successfully.',
+            'message' => __('messages.order_status_updated'),
             'data' => $order->fresh()->load('user', 'items', 'trackingEvents'),
         ]);
     }
@@ -182,7 +182,7 @@ class OrderController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Tracking event added.',
+            'message' => __('messages.tracking_event_added'),
             'data' => $event,
         ]);
     }

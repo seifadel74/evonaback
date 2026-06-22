@@ -34,7 +34,7 @@ class ProfileController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Profile updated successfully.',
+            'message' => __('messages.profile_updated'),
             'data' => $request->user()->fresh()->load('roles'),
         ]);
     }
@@ -54,7 +54,7 @@ class ProfileController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Avatar updated.',
+            'message' => __('messages.avatar_updated'),
             'data' => $user->fresh()->load('roles'),
         ]);
     }

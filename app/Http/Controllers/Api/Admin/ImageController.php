@@ -31,7 +31,7 @@ class ImageController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Image uploaded successfully.',
+            'message' => __('messages.image_uploaded'),
             'data' => $image,
         ], 201);
     }
@@ -55,7 +55,7 @@ class ImageController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Image added from URL successfully.',
+            'message' => __('messages.image_added_from_url'),
             'data' => $image,
         ], 201);
     }
@@ -80,7 +80,7 @@ class ImageController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Image updated successfully.',
+            'message' => __('messages.image_updated'),
             'data' => $image->fresh(),
         ]);
     }
@@ -94,7 +94,7 @@ class ImageController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Image deleted successfully.',
+            'message' => __('messages.image_deleted'),
         ]);
     }
 }

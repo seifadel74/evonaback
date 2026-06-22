@@ -108,13 +108,13 @@ class StripeService
         } catch (SignatureVerificationException $e) {
             Log::warning('Stripe webhook signature verification failed', ['error' => $e->getMessage()]);
 
-            return ['success' => false, 'error' => 'Invalid signature.', 'code' => 400];
+            return ['success' => false, 'error' => __('messages.invalid_signature'), 'code' => 400];
         }
 
         return match ($event->type) {
             'checkout.session.completed' => $this->handleSessionCompleted($event->data->object),
             'checkout.session.expired' => $this->handleSessionExpired($event->data->object),
-            default => ['success' => true, 'message' => 'Unhandled event type.']
+            default => ['success' => true, 'message' => __('messages.unhandled_event')]
         };
     }
 
@@ -123,23 +123,23 @@ class StripeService
         $order = Order::with('coupon')->find((int) $session->metadata->order_id);
 
         if (!$order) {
-            return ['success' => false, 'error' => 'Order not found.', 'code' => 404];
+            return ['success' => false, 'error' => __('messages.order_not_found_stripe'), 'code' => 404];
         }
 
         if ($order->status !== 'pending') {
-            return ['success' => true, 'message' => 'Order already processed.'];
+            return ['success' => true, 'message' => __('messages.order_already_processed')];
         }
 
         if ($session->payment_status !== 'paid') {
             Log::warning('Stripe session completed but not paid', ['order_id' => $order->id, 'payment_status' => $session->payment_status]);
 
-            return ['success' => false, 'error' => 'Payment not completed.', 'code' => 400];
+            return ['success' => false, 'error' => __('messages.payment_not_completed'), 'code' => 400];
         }
 
         if ($order->payment_session_id && $order->payment_session_id !== $session->id) {
             Log::warning('Stripe session ID mismatch', ['order_id' => $order->id, 'expected' => $order->payment_session_id, 'received' => $session->id]);
 
-            return ['success' => false, 'error' => 'Session mismatch.', 'code' => 400];
+            return ['success' => false, 'error' => __('messages.session_mismatch'), 'code' => 400];
         }
 
         $expectedAmount = (int) round($order->total * 100);
@@ -150,7 +150,7 @@ class StripeService
                 'received' => $session->amount_total,
             ]);
 
-            return ['success' => false, 'error' => 'Amount mismatch.', 'code' => 400];
+            return ['success' => false, 'error' => __('messages.amount_mismatch'), 'code' => 400];
         }
 
         $order->update([
@@ -168,7 +168,7 @@ class StripeService
 
         try { \Illuminate\Support\Facades\Mail::to($order->user->email)->send(new OrderConfirmationMail($order->fresh()->load(['user', 'items']))); } catch (\Throwable $e) { \Illuminate\Support\Facades\Log::warning('Failed to send order confirmation', ['order' => $order->id, 'error' => $e->getMessage()]); }
 
-        return ['success' => true, 'message' => 'Payment confirmed.'];
+        return ['success' => true, 'message' => __('messages.payment_confirmed')];
     }
 
     protected function handleSessionExpired(mixed $session): array
@@ -180,7 +180,7 @@ class StripeService
             $order->update(['status' => 'cancelled', 'cancelled_at' => now(), 'cancellation_reason' => 'Payment session expired.']);
         }
 
-        return ['success' => true, 'message' => 'Session expired handled.'];
+        return ['success' => true, 'message' => __('messages.session_expired')];
     }
 
     protected function restoreStock(Order $order): void

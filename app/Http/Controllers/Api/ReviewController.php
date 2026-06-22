@@ -59,7 +59,7 @@ class ReviewController extends Controller
         if ($exists) {
             return response()->json([
                 'success' => false,
-                'message' => 'You have already reviewed this product.',
+                'message' => __('messages.review_exists'),
             ], 422);
         }
 
@@ -73,7 +73,7 @@ class ReviewController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Review submitted successfully.',
+            'message' => __('messages.review_created'),
             'data' => $review->load('user:id,name,avatar'),
         ], 201);
     }
@@ -81,7 +81,7 @@ class ReviewController extends Controller
     public function update(Request $request, Review $review): JsonResponse
     {
         if ($review->user_id !== $request->user()->id) {
-            return response()->json(['success' => false, 'message' => 'Unauthorized.'], 403);
+            return response()->json(['success' => false, 'message' => __('messages.unauthorized')], 403);
         }
 
         $validated = $request->validate([
@@ -93,7 +93,7 @@ class ReviewController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Review updated successfully.',
+            'message' => __('messages.review_updated'),
             'data' => $review->load('user:id,name,avatar'),
         ]);
     }
@@ -101,14 +101,14 @@ class ReviewController extends Controller
     public function destroy(Request $request, Review $review): JsonResponse
     {
         if ($review->user_id !== $request->user()->id) {
-            return response()->json(['success' => false, 'message' => 'Unauthorized.'], 403);
+            return response()->json(['success' => false, 'message' => __('messages.unauthorized')], 403);
         }
 
         $review->delete();
 
         return response()->json([
             'success' => true,
-            'message' => 'Review deleted successfully.',
+            'message' => __('messages.review_deleted'),
         ]);
     }
 }

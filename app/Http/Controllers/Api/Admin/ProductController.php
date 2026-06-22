@@ -98,7 +98,7 @@ class ProductController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Product created successfully.',
+            'message' => __('messages.product_created'),
             'data' => $product->load(['category', 'images']),
         ], 201);
     }
@@ -138,7 +138,7 @@ class ProductController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Product updated successfully.',
+            'message' => __('messages.product_updated'),
             'data' => $product->fresh()->load(['category', 'images']),
         ]);
     }
@@ -150,7 +150,7 @@ class ProductController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Product deleted successfully.',
+            'message' => __('messages.product_deleted'),
         ]);
     }
 
@@ -171,7 +171,7 @@ class ProductController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Product restored successfully.',
+            'message' => __('messages.product_restored'),
             'data' => $product->load(['category', 'images']),
         ]);
     }
@@ -195,7 +195,7 @@ class ProductController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Product duplicated successfully.',
+            'message' => __('messages.product_duplicated'),
             'data' => $product->load(['category', 'images']),
         ]);
     }
@@ -301,7 +301,7 @@ class ProductController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Products updated successfully.',
+            'message' => __('messages.products_updated'),
         ]);
     }
 }

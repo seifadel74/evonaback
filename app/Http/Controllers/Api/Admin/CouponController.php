@@ -51,7 +51,7 @@ class CouponController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Coupon created successfully.',
+            'message' => __('messages.coupon_created'),
             'data' => $coupon,
         ], 201);
     }
@@ -84,7 +84,7 @@ class CouponController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Coupon updated successfully.',
+            'message' => __('messages.coupon_updated'),
             'data' => $coupon->fresh(),
         ]);
     }
@@ -107,7 +107,7 @@ class CouponController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Coupon deleted successfully.',
+            'message' => __('messages.coupon_deleted'),
         ]);
     }
 }

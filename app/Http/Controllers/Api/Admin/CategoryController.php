@@ -31,6 +31,7 @@ class CategoryController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|string|max:255',
+            'en_name' => 'nullable|string|max:255',
             'description' => 'nullable|string',
             'image' => 'nullable|string|max:2048',
             'parent_id' => 'nullable|exists:categories,id',
@@ -46,7 +47,7 @@ class CategoryController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Category created successfully.',
+            'message' => __('messages.category_created'),
             'data' => $category,
         ], 201);
     }
@@ -67,6 +68,7 @@ class CategoryController extends Controller
 
         $validated = $request->validate([
             'name' => 'sometimes|string|max:255',
+            'en_name' => 'nullable|string|max:255',
             'description' => 'nullable|string',
             'image' => 'nullable|string|max:2048',
             'parent_id' => 'nullable|exists:categories,id',
@@ -82,7 +84,7 @@ class CategoryController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Category updated successfully.',
+            'message' => __('messages.category_updated'),
             'data' => $category->fresh(),
         ]);
     }
@@ -94,7 +96,7 @@ class CategoryController extends Controller
         if ($category->products()->exists()) {
             return response()->json([
                 'success' => false,
-                'message' => 'Cannot delete category with associated products.',
+                'message' => __('messages.category_delete_has_products'),
             ], 422);
         }
 
@@ -102,7 +104,7 @@ class CategoryController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Category deleted successfully.',
+            'message' => __('messages.category_deleted'),
         ]);
     }
 }

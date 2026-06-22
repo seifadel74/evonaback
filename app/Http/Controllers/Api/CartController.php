@@ -52,7 +52,7 @@ class CartController extends Controller
         if (!$product) {
             return response()->json([
                 'success' => false,
-                'message' => 'Product is unavailable.',
+                'message' => __('messages.product_unavailable'),
             ], 422);
         }
 
@@ -62,7 +62,7 @@ class CartController extends Controller
             if (!$variant) {
                 return response()->json([
                     'success' => false,
-                    'message' => 'Variant is unavailable.',
+                    'message' => __('messages.variant_unavailable'),
                 ], 422);
             }
         }
@@ -78,7 +78,7 @@ class CartController extends Controller
         if ($stock < $newQuantity) {
             return response()->json([
                 'success' => false,
-                'message' => 'Insufficient stock.',
+                'message' => __('messages.insufficient_stock'),
             ], 422);
         }
 
@@ -96,7 +96,7 @@ class CartController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Product added to cart.',
+            'message' => __('messages.product_added_to_cart'),
             'data' => $cart,
         ]);
     }
@@ -116,7 +116,7 @@ class CartController extends Controller
         if (!$product || !$product->is_active) {
             return response()->json([
                 'success' => false,
-                'message' => 'Product is unavailable.',
+                'message' => __('messages.product_unavailable'),
             ], 422);
         }
 
@@ -124,7 +124,7 @@ class CartController extends Controller
         if ($stock < $validated['quantity']) {
             return response()->json([
                 'success' => false,
-                'message' => 'Insufficient stock.',
+                'message' => __('messages.insufficient_stock'),
             ], 422);
         }
 

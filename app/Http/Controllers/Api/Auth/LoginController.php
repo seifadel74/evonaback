@@ -27,13 +27,13 @@ class LoginController extends Controller
 
         if (!$user || !Hash::check($validated['password'], $user->password)) {
             throw ValidationException::withMessages([
-                'email' => ['The provided credentials are incorrect.'],
+                'email' => [__('messages.credentials_incorrect')],
             ]);
         }
 
         if (!$user->is_active) {
             throw ValidationException::withMessages([
-                'email' => ['This account has been deactivated.'],
+                'email' => [__('messages.account_deactivated')],
             ]);
         }
 
@@ -42,7 +42,7 @@ class LoginController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Logged in successfully.',
+            'message' => __('messages.logged_in'),
             'data' => [
                 'user' => $user,
                 'token' => $token,

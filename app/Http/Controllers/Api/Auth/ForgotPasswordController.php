@@ -37,7 +37,7 @@ class ForgotPasswordController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'If an account exists with that email, a password reset link has been sent.',
+            'message' => __('messages.reset_sent'),
         ]);
     }
 
@@ -54,7 +54,7 @@ class ForgotPasswordController extends Controller
         if (!$record || !password_verify($validated['token'], $record->token)) {
             return response()->json([
                 'success' => false,
-                'message' => 'Invalid token.',
+                'message' => __('messages.invalid_token'),
             ], 400);
         }
 
@@ -62,7 +62,7 @@ class ForgotPasswordController extends Controller
         if ($createdAt->diffInMinutes(now()) > 60) {
             return response()->json([
                 'success' => false,
-                'message' => 'Token expired.',
+                'message' => __('messages.token_expired'),
             ], 400);
         }
 
@@ -70,7 +70,7 @@ class ForgotPasswordController extends Controller
         if (!$user) {
             return response()->json([
                 'success' => false,
-                'message' => 'Invalid token.',
+                'message' => __('messages.invalid_token'),
             ], 400);
         }
 
@@ -80,7 +80,7 @@ class ForgotPasswordController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Password reset successfully.',
+            'message' => __('messages.password_reset'),
         ]);
     }
 }

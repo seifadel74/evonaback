@@ -164,7 +164,7 @@ class CheckoutController extends Controller
             try { \Illuminate\Support\Facades\Mail::to($order->user->email)->send(new OrderConfirmationMail($order)); } catch (\Throwable $e) { \Illuminate\Support\Facades\Log::warning('Failed to send order confirmation', ['order' => $order->id, 'error' => $e->getMessage()]); }
             return response()->json([
                 'success' => true,
-                'message' => 'Order created successfully. Pay on delivery.',
+                'message' => __('messages.order_created_cod'),
                 'data' => [
                     'order' => $order,
                     'payment_url' => null,
@@ -181,13 +181,13 @@ class CheckoutController extends Controller
 
             return response()->json([
                 'success' => false,
-                'message' => 'Failed to initiate payment. Please try again.',
+                'message' => __('messages.payment_failed'),
             ], 500);
         }
 
         return response()->json([
             'success' => true,
-            'message' => 'Order created. Redirect to payment.',
+            'message' => __('messages.order_created_redirect'),
             'data' => [
                 'order' => $order->fresh()->load('items'),
                 'payment_url' => $session->url,

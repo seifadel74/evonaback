@@ -37,7 +37,7 @@ class ReviewController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Review approved.',
+            'message' => __('messages.review_approved'),
             'data' => $review->fresh()->load('user', 'product'),
         ]);
     }
@@ -49,7 +49,7 @@ class ReviewController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Review deleted.',
+            'message' => __('messages.review_deleted_admin'),
         ]);
     }
 }

@@ -22,7 +22,7 @@ class NewsletterController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Subscribed successfully.',
+            'message' => __('messages.subscribed'),
             'data' => $newsletter,
         ], 201);
     }
@@ -37,7 +37,7 @@ class NewsletterController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Unsubscribed successfully.',
+            'message' => __('messages.unsubscribed'),
         ]);
     }
 }

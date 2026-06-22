@@ -57,7 +57,7 @@ class OrderController extends Controller
         if (!in_array($order->status, ['pending', 'confirmed'])) {
             return response()->json([
                 'success' => false,
-                'message' => 'Order cannot be cancelled in its current status.',
+                'message' => __('messages.order_cannot_cancel'),
             ], 422);
         }
 
@@ -89,7 +89,7 @@ class OrderController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Order cancelled successfully.',
+            'message' => __('messages.order_cancelled'),
             'data' => $order->fresh(),
         ]);
     }

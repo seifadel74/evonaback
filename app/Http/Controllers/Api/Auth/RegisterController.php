@@ -40,7 +40,7 @@ class RegisterController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Account created successfully.',
+            'message' => __('messages.account_created'),
             'data' => [
                 'user' => $user,
                 'token' => $token,

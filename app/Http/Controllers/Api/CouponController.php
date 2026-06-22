@@ -28,7 +28,7 @@ class CouponController extends Controller
         if (!$coupon || !CheckoutPricing::isCouponValid($coupon, (float) $validated['cart_total'])) {
             return response()->json([
                 'success' => false,
-                'message' => 'Invalid coupon code.',
+                'message' => __('messages.coupon_invalid'),
             ], 422);
         }
 
